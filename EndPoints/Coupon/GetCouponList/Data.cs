@@ -3,17 +3,17 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Coupon.GetCouponList
 {
-    public static class Data
+    public class Data
     {
-        private readonly static FastEndPoints_DemoContext _context;
+        private readonly FastEndPoints_DemoContext _context;
 
-        static Data()
+        public Data(FastEndPoints_DemoContext context)
         {
-            // Initialize the FastEndPoints_DemoContext instance using the DI container
-            _context = new FastEndPoints_DemoContext();
+            _context = context;
         }
 
-        internal static async Task<List<ResponseCoupon>> GetCouponsAsync()
+        
+        public   async Task<List<ResponseCoupon>> GetCouponsAsync()
         {
             // Use the FastEndPoints_DemoContext instance to retrieve data from the database
             var coupons = await _context.Coupon.Select(a => new ResponseCoupon

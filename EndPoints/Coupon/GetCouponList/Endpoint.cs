@@ -2,6 +2,7 @@
 {
     public class Endpoint : EndpointWithoutRequest<List<ResponseCoupon>>
     {
+        public Data CouponData { get; set; }
         public override void Configure()
         {
             Get("/api/coupon");
@@ -10,7 +11,7 @@
 
         public override async Task HandleAsync(CancellationToken c)
         {
-            var coupons= await Data.GetCouponsAsync();
+            var coupons= await CouponData.GetCouponsAsync();
             
             await SendAsync(coupons);
         }
