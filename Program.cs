@@ -1,6 +1,7 @@
 global using FastEndpoints;
 using Coupon.GetCouponList;
 using Dom;
+using FastEndPoint_Demo.Middleware;
 using FastEndpoints.Swagger; //add this
 using Microsoft.EntityFrameworkCore;
 
@@ -14,4 +15,5 @@ var app = builder.Build();
 app.UseAuthorization();
 app.UseFastEndpoints();
 app.UseSwaggerGen(); //add this
+//app.UseMiddleware<ApiKeyAuthenticationMiddleware>();
 app.Run();

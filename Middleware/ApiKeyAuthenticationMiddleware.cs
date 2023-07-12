@@ -13,7 +13,7 @@
 
         public async Task InvokeAsync(HttpContext context)
         {
-            var apiKey = context.Request.Headers["Api-Key"].FirstOrDefault();
+            var apiKey = context.Request.Headers["ApiKey"].FirstOrDefault();
 
             if (string.IsNullOrEmpty(apiKey))
             {
